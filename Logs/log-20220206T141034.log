@@ -1,0 +1,15 @@
+14:10:39 INFO  manager.ApplicationManager - All tests start in ChromeBrowser
+14:10:41 INFO  tests.TestsBase - Name of test --->loginSuccess
+14:10:41 INFO  manager.MyListener - Start find element ---> By.xpath: //*[.='Sign Out']
+14:10:46 INFO  manager.MyListener - Element with locator ---> By.xpath: //*[.='Sign Out'] was found
+14:10:46 INFO  tests.TestsBase - Test starts with: email [noa@gmail.com] & password [Nnoa12345$]
+14:10:46 INFO  manager.MyListener - Start find element ---> By.cssSelector: a[href='/login']
+14:10:46 INFO  manager.MyListener - Element with locator ---> By.cssSelector: a[href='/login'] was found
+14:10:46 INFO  manager.MyListener - Start find element ---> By.xpath: //*[@placeholder='Email']
+14:10:46 INFO  manager.MyListener - Element with locator ---> By.xpath: //*[@placeholder='Email'] was found
+14:10:46 INFO  manager.MyListener - Start find element ---> By.xpath: //*[@placeholder='Password']
+14:10:46 INFO  manager.MyListener - Element with locator ---> By.xpath: //*[@placeholder='Password'] was found
+14:10:47 INFO  manager.MyListener - Start find element ---> By.xpath: //button[.=' Login']
+14:10:47 INFO  manager.MyListener - Element with locator ---> By.xpath: //button[.=' Login'] was found
+14:10:47 INFO  manager.MyListener - Start find element ---> By.cssSelector: button
+14:10:48 INFO  manager.MyListener - Element with locator ---> By.cssSelector: button was found
