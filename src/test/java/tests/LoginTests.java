@@ -18,6 +18,8 @@ public class LoginTests extends TestsBase {
     @Test
     public void loginSuccess(){
 
+        logger.info("Test starts with: email [noa@gmail.com] & password [Nnoa12345$]");
+
         app.getUserHelper().openLoginForm();
         app.getUserHelper().fillLoginForm("noa@gmail.com", "Nnoa12345$");
         // type(By.xpath("//*[@placeholder='Email']"),"noa@gmail.com");
@@ -43,6 +45,22 @@ public class LoginTests extends TestsBase {
         app.getUserHelper().clickLoginButton();
 
         Assert.assertTrue(app.getUserHelper().isLoginSuccess());
+    }
+
+// *********************   Test with model  *********************
+    @Test
+    public void loginNegativeTest(){
+
+        User user = new User().withEmail("noa@gmail.com").withPassword("Nnoa");
+
+        app.getUserHelper().openLoginForm();
+        app.getUserHelper().fillLoginForm(user);
+        app.getUserHelper().clickLoginButton();
+
+        Assert.assertTrue(app.getUserHelper().isAlertDisplayed());
+        //Assert.assertFalse(app.getUserHelper().isLoginSuccess());
+
+        //Assert.assertTrue(app.getUserHelper().isErrorWrongPasswordOrEmailFormat());
     }
 
 }
