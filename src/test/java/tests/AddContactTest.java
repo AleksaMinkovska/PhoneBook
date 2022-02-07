@@ -17,7 +17,7 @@ public class AddContactTest extends TestsBase{
 
     }
 
-    @Test
+    @Test(invocationCount = 3)   // 3 times test starts
     public void addContactSuccess(){
         // open add --> fill form --> click save button
 
@@ -25,10 +25,10 @@ public class AddContactTest extends TestsBase{
 
         int numIndex = (int)(System.currentTimeMillis()/1000%3600);
         Contact contact = Contact.builder()
-                .name("Treo")
-                .lastName("Lui")
+                .name("Leo")
+                .lastName("Bug")
                 .phone("+3712"+numIndex+"737")
-                .email("abc"+numIndex+"@mail.com")
+                .email("leo"+numIndex+"@fb.com")
                 .address("Luton, Build street 5 - 8")
                 .description("friend from UK")
                 .build();

@@ -1,0 +1,12 @@
+13:05:25 INFO  manager.ApplicationManager - All tests start in ChromeBrowser
+13:05:28 INFO  tests.TestsBase - Name of test --->loginNegativeTestWithWrongPassword
+13:05:28 INFO  manager.MyListener - Start find element ---> By.xpath: //*[.='Sign Out']
+13:05:33 INFO  manager.MyListener - Element with locator ---> By.xpath: //*[.='Sign Out'] was found
+13:05:33 INFO  manager.MyListener - Start find element ---> By.cssSelector: a[href='/login']
+13:05:33 INFO  manager.MyListener - Element with locator ---> By.cssSelector: a[href='/login'] was found
+13:05:34 INFO  manager.MyListener - Start find element ---> By.xpath: //*[@placeholder='Email']
+13:05:34 INFO  manager.MyListener - Element with locator ---> By.xpath: //*[@placeholder='Email'] was found
+13:05:34 INFO  manager.MyListener - Start find element ---> By.xpath: //*[@placeholder='Password']
+13:05:34 INFO  manager.MyListener - Element with locator ---> By.xpath: //*[@placeholder='Password'] was found
+13:05:35 INFO  manager.MyListener - Start find element ---> By.xpath: //button[.=' Login']
+13:05:35 INFO  manager.MyListener - Element with locator ---> By.xpath: //button[.=' Login'] was found

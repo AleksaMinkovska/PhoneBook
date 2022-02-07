@@ -72,6 +72,7 @@ public class UserHelper extends HelperBase {
     }
 
 
+
 // *********************   Alerts  *********************
 
     public boolean isAlertDisplayed() {
@@ -82,21 +83,21 @@ public class UserHelper extends HelperBase {
             return false;
         }
         else{
-            wd.switchTo().alert();
-            alert.getText();  // get message from alert
-            alert.accept();   // click Ok button
+//            wd.switchTo().alert();
+//            System.out.println(alert.getText());  // get message from alert
+//            alert.accept();   // click Ok button
             //alert.dismiss();  // click cancel button
             //alert.sendKeys("email");  // send key
-            //alert.getText();  // get message from alert
             return true;
         }
     }
 
-    public boolean isErrorWrongPasswordOrEmailFormat() {
+
+    public boolean isWrongEmailOrPasswordFormat() {
         Alert alert = new WebDriverWait(wd, 10)
                 .until(ExpectedConditions.alertIsPresent());
-        wd.switchTo().alert();
 
+        wd.switchTo().alert();
         String error = alert.getText();
         alert.accept();
         return error.contains("Wrong email or password format");
