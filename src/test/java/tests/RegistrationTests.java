@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class RegistrationTests extends TestsBase {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     // if LogIn --> SignOut
     public void preconditions(){
         if(app.getUserHelper().isSignOutButtonPresent()){
@@ -15,7 +15,7 @@ public class RegistrationTests extends TestsBase {
         }
     }
 
-    @Test
+    @Test(groups = {"web"})
     public void registrationSuccess(){
 
         int index = (int)(System.currentTimeMillis()/1000%3600);

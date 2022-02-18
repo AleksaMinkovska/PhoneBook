@@ -1,5 +1,6 @@
 package tests;
 
+import manager.MyDataProvider;
 import models.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -7,16 +8,16 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends TestsBase {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     // if LogIn --> SignOut
-    public void preconditions(){
-        if(app.getUserHelper().isSignOutButtonPresent()){
+    public void preconditions() {
+        if (app.getUserHelper().isSignOutButtonPresent()) {
             app.getUserHelper().signOut();
         }
     }
 
     @Test
-    public void loginSuccess(){
+    public void loginSuccess() {
 
         logger.info("Test starts with: email [noa@gmail.com] & password [Nnoa12345$]");
 
@@ -32,11 +33,9 @@ public class LoginTests extends TestsBase {
     }
 
 
-
-
-// *********************   Test with model  *********************
-    @Test
-    public void loginSuccessModel(){
+    // *********************   Test with model  *********************
+    @Test(groups = {"web"})
+    public void loginSuccessModel() {
 
         User user = new User().withEmail("noa@gmail.com").withPassword("Nnoa12345$");
 
@@ -50,7 +49,7 @@ public class LoginTests extends TestsBase {
 // *********************   Negative Test  *********************
 
     @Test
-    public void loginNegativeTestWithWrongPassword(){
+    public void loginNegativeTestWithWrongPassword() {
 
         User user = new User().withEmail("noa@gmail.com").withPassword("Nnoa");
 
@@ -61,6 +60,42 @@ public class LoginTests extends TestsBase {
         //Assert.assertFalse(app.getUserHelper().isLoginSuccess());  // Just FYI
         Assert.assertTrue(app.getUserHelper().isAlertDisplayed());
         Assert.assertTrue(app.getUserHelper().isWrongEmailOrPasswordFormat());
+    }
+
+
+    @Test(dataProvider = "loginValidData", dataProviderClass = MyDataProvider.class)
+    public void loginSuccessDataProvider(String email, String password) {
+
+        logger.info("Test starts with 'email':" + email + " & 'password': " + password);
+        app.getUserHelper().openLoginForm();
+        app.getUserHelper().fillLoginForm(email, password);
+        app.getUserHelper().clickLoginButton();
+
+        Assert.assertTrue(app.getUserHelper().isLoginSuccess());
+    }
+
+
+    @Test(dataProvider = "loginValidDataModel", dataProviderClass = MyDataProvider.class)
+    public void loginSuccessModelDataProvider(User user) {
+
+        app.getUserHelper().openLoginForm();
+        app.getUserHelper().fillLoginForm(user);
+        app.getUserHelper().clickLoginButton();
+
+        Assert.assertTrue(app.getUserHelper().isLoginSuccess());
+    }
+
+
+    @Test(dataProvider = "loginValidDataCSV", dataProviderClass = MyDataProvider.class)
+    public void loginSuccessDataProviderCSV(String email, String password) {
+
+        logger.info("Test starts with 'email':" + email + " & 'password': " + password);
+        app.getUserHelper().openLoginForm();
+        app.getUserHelper().fillLoginForm(email, password);
+        app.getUserHelper().clickLoginButton();
+
+        Assert.assertTrue(app.getUserHelper().isLoginSuccess());
+
     }
 
 }
