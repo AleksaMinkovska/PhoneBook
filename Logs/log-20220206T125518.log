@@ -1,3 +1,0 @@
-12:55:24 INFO  manager.ApplicationManager - All tests start in ChromeBrowser
-12:55:25 INFO  tests.TestsBase - Name of test --->loginSuccess
-12:55:30 INFO  tests.TestsBase - Test starts with: email [noa@gmail.com] & password [Nnoa12345$]
